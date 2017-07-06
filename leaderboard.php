@@ -13,8 +13,8 @@ $connection = new PDO(
 );
 
 function get_file_cache($param) {
-    global $IS_DEVELOPMENT;
-    return $IS_DEVELOPMENT ? "cache/".$param.".tmpdev" : "cache/".$param.".tmp";
+    global $IS_DEVELOPMENT, $current_world;
+    return $IS_DEVELOPMENT ? "cache/".$param."_{$current_world}.tmpdev" : "cache/".$param."_{$current_world}.tmp";
 }
 
 function read_cache($param) {
